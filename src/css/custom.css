@@ -1,0 +1,51 @@
+/**
+ * Lordship Rec — global theme overrides.
+ * Infima variables: https://infima.dev/docs/variables/colors
+ */
+
+:root {
+  /* Park green primary */
+  --ifm-color-primary: #2c7a3f;
+  --ifm-color-primary-dark: #266c38;
+  --ifm-color-primary-darker: #246635;
+  --ifm-color-primary-darkest: #1d542c;
+  --ifm-color-primary-light: #318846;
+  --ifm-color-primary-lighter: #348e49;
+  --ifm-color-primary-lightest: #3ea255;
+
+  --ifm-heading-font-weight: 700;
+  --ifm-font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --ifm-navbar-height: 4rem;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #6ec07c;
+  --ifm-color-primary-dark: #54b665;
+  --ifm-color-primary-darker: #47b15a;
+  --ifm-color-primary-darkest: #3a9249;
+  --ifm-color-primary-light: #88ca93;
+  --ifm-color-primary-lighter: #95cf9e;
+  --ifm-color-primary-lightest: #b8debf;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Navbar CTA button styling for "Get involved" */
+.navbar__cta {
+  background: var(--ifm-color-primary);
+  color: #fff !important;
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+}
+
+.navbar__cta:hover {
+  background: var(--ifm-color-primary-dark);
+  text-decoration: none;
+}
+
+/* Slightly softer body type for a community feel */
+body {
+  font-size: 16.5px;
+  line-height: 1.65;
+}

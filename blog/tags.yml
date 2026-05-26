@@ -1,0 +1,19 @@
+events:
+  label: Events
+  permalink: /events
+  description: Park events, festivals and walks
+
+volunteering:
+  label: Volunteering
+  permalink: /volunteering
+  description: Volunteer days and working groups
+
+wildlife:
+  label: Wildlife
+  permalink: /wildlife
+  description: Wildlife sightings and habitat management
+
+regeneration:
+  label: Regeneration
+  permalink: /regeneration-news
+  description: Updates on park improvement projects
