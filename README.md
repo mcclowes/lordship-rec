@@ -18,18 +18,28 @@ Node ≥ 20 required.
 
 ```
 docs/
-  about/              # About the Friends, get involved, constitution, contact
-  facilities/         # Playground, woodland, lake, BMX, hub, weather station
+  about/              # The Friends, history of the Friends, constitution, policies
+  park/               # About the park, getting there, booking, management, local communities
+  facilities/         # Playground, woodland, lake, BMX, hub/cafe, weather station, orchard, outdoor gym, river Moselle, model traffic area, active play
+  wildlife/           # Wildlife in the park
   history/            # Chronology, wartime, walks
   regeneration/       # Active and past park projects
-blog/                 # News posts (served at /news)
+  festival/           # Festival & events, calendar
+  get-involved/       # Volunteering, mailing list, user groups (sports, wildlife, walking, etc.)
+  links.mdx           # External links page
+blog/                 # News posts (served at /news), with authors.yml and tags.yml
 src/
-  components/         # FacilitiesGrid and any future custom components
-  pages/index.tsx     # Custom homepage (overrides docs root)
+  components/
+    Bulletin/         # Homepage components (Masthead, LeadSpread, ThisWeek, ParkMap, FieldNotes, Seasons, Help, News)
+    FacilitiesGrid/   # Facilities landing-page grid
+  pages/index.tsx     # Custom bulletin-style homepage
   css/custom.css      # Global Infima overrides
-static/img/           # Logo, favicon, social card, photos
+  css/bulletin.css    # Homepage bulletin styles
+static/
+  img/                # Logo, favicon, social card, photos
+  downloads/          # PDFs (e.g. volunteering map)
 docusaurus.config.ts  # Site config (nav, footer, plugins)
-sidebars.ts           # One sidebar per section (about/facilities/history/regeneration)
+sidebars.ts           # One sidebar per section
 ```
 
 Docs are served at the site root (`routeBasePath: '/'`), so e.g. `docs/facilities/lake.mdx` lives at `/facilities/lake`. The blog plugin is mounted at `/news`.
@@ -42,13 +52,11 @@ Docs are served at the site root (`routeBasePath: '/'`), so e.g. `docs/facilitie
 
 ## To do before launch
 
-- [ ] Replace `static/img/logo.svg` with the Friends logo
+- [ ] Replace `static/img/logo.svg` with the Friends logo (still the default Docusaurus logo)
 - [ ] Replace `static/img/favicon.ico` with a park-themed favicon
-- [ ] Add `static/img/social-card.jpg` (Open Graph / Twitter share image, 1200×630)
-- [ ] Fill in placeholders across `docs/` (search for `_Placeholder` in MDX files)
-- [ ] Set up the mailing list signup on `/about/get-involved`
-- [ ] Migrate news posts from the existing WordPress site
-- [ ] Push to GitHub and set `editUrl` in `docusaurus.config.ts`
+- [ ] Replace `static/img/docusaurus-social-card.jpg` with a 1200×630 park photo (see TODO in `docusaurus.config.ts`)
+- [ ] Replace WordPress shortcode in `docs/get-involved/mailing-list.mdx` with a working signup form
+- [ ] Set `editUrl` in `docusaurus.config.ts` (repo is at github.com/mcclowes/lordship-rec)
 - [ ] Configure deployment (Vercel, Netlify or GitHub Pages)
 
 ## Deployment

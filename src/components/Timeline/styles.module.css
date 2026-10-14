@@ -1,0 +1,231 @@
+/* Interactive chronology for the Friends' history page.
+   Tokens (--ink, --paper, --moss/--clay/--sky, fonts) come from custom.css.
+   --tl-accent is set per-era in the component and transitions as you scroll. */
+
+.timeline {
+  --tl-accent: var(--moss);
+  --tl-spine-x: 9px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  margin: 2.5rem 0 3rem;
+}
+
+@media (min-width: 997px) {
+  .timeline {
+    grid-template-columns: 168px minmax(0, 1fr);
+    gap: 2.75rem;
+    align-items: start;
+  }
+}
+
+/* --- Era rail (sticky jump nav) --- */
+.rail {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+@media (min-width: 997px) {
+  .rail {
+    position: sticky;
+    top: calc(var(--ifm-navbar-height) + 1.5rem);
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
+
+.railItem {
+  --tl-accent: var(--moss);
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 0.45rem 0.7rem;
+  border-radius: 4px;
+  border: 0;
+  border-left: 2px solid var(--rule-soft);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.35s ease, background-color 0.35s ease,
+    opacity 0.35s ease, transform 0.2s ease;
+  opacity: 0.55;
+}
+
+.railItem:hover {
+  opacity: 0.9;
+  background: color-mix(in oklch, var(--tl-accent) 7%, transparent);
+}
+
+.railItem[data-active='true'] {
+  opacity: 1;
+  border-left-color: var(--tl-accent);
+  background: color-mix(in oklch, var(--tl-accent) 9%, transparent);
+}
+
+.railYears {
+  font-family: var(--bulletin-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--ink-mute);
+}
+
+.railLabel {
+  font-family: var(--bulletin-serif);
+  font-size: 15px;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+/* --- The track --- */
+.track {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0 0 2.25rem;
+}
+
+.spine {
+  position: absolute;
+  left: var(--tl-spine-x);
+  top: 0.75rem;
+  bottom: 1.5rem;
+  width: 2px;
+  background: var(--rule-soft);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.spineFill {
+  position: absolute;
+  inset: 0;
+  transform-origin: top;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in oklch, var(--tl-accent) 55%, transparent),
+    var(--tl-accent)
+  );
+  transition: background 0.6s ease;
+  will-change: transform;
+}
+
+/* --- Era headings inside the flow --- */
+.eraHeading {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin: 1.5rem 0 1.6rem -2.25rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--rule-soft);
+  font-family: var(--bulletin-serif);
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 500;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.item:first-child .eraHeading {
+  margin-top: 0;
+}
+
+.eraHeadingYears {
+  font-family: var(--bulletin-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--tl-accent);
+}
+
+/* --- Each event --- */
+.item {
+  position: relative;
+  padding-bottom: 1.9rem;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.6s ease;
+}
+
+.item[data-on='false'] {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.item[data-on='true'] {
+  opacity: 1;
+  transform: none;
+}
+
+.dot {
+  position: absolute;
+  left: calc(var(--tl-spine-x) - 2.25rem - 4px);
+  top: 0.55rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--rule);
+  transition: border-color 0.4s ease, background-color 0.4s ease,
+    box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.item[data-active='true'] .dot {
+  background: var(--tl-accent);
+  border-color: var(--tl-accent);
+  transform: scale(1.35);
+  box-shadow: 0 0 0 5px color-mix(in oklch, var(--tl-accent) 16%, transparent);
+}
+
+.card {
+  padding: 0.1rem 0 0.1rem 0.25rem;
+  border-left: 2px solid transparent;
+  padding-left: 1rem;
+  margin-left: -1rem;
+  transition: border-color 0.4s ease;
+}
+
+.item[data-active='true'] .card {
+  border-left-color: color-mix(in oklch, var(--tl-accent) 35%, transparent);
+}
+
+.date {
+  margin: 0 0 0.2rem;
+  font-family: var(--bulletin-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  transition: color 0.4s ease;
+}
+
+.item[data-active='true'] .date {
+  color: var(--tl-accent);
+}
+
+.title {
+  margin: 0 0 0.35rem;
+  font-family: var(--bulletin-serif);
+  font-size: clamp(18px, 1.7vw, 21px);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.body {
+  margin: 0;
+  font-family: var(--bulletin-serif);
+  font-size: 16.5px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 56ch;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item,
+  .dot,
+  .spineFill {
+    transition: none;
+  }
+  .item[data-on='false'] {
+    opacity: 1;
+    transform: none;
+  }
+}
