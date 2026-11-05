@@ -29,6 +29,12 @@ const config: Config = {
     locales: ['en-GB'],
   },
 
+  plugins: [
+    // Exposes the most recent blog posts as global data so the homepage can
+    // derive its "News" section from blog/ instead of duplicating it.
+    ['./plugins/recent-news', {blogDir: 'blog', limit: 7}],
+  ],
+
   presets: [
     [
       'classic',

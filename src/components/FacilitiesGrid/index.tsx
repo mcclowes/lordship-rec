@@ -11,10 +11,10 @@ type Facility = {
 
 const facilities: Facility[] = [
   {
-    title: 'Playground',
-    to: '/facilities/playground',
-    blurb: 'Equipment for under-5s through to older children, in the south-west of the park.',
-    emoji: '🛝',
+    title: 'The Orchard',
+    to: '/facilities/orchard',
+    blurb: 'A community orchard of heritage apple, pear and plum trees, with a Wassail in January.',
+    emoji: '🍎',
   },
   {
     title: 'Woodland',
@@ -23,27 +23,57 @@ const facilities: Facility[] = [
     emoji: '🌳',
   },
   {
-    title: 'Lake & ponds',
+    title: 'The Lake',
     to: '/facilities/lake',
-    blurb: 'The daylighted Moselle, source pond and main lake — home to kingfishers and herons.',
+    blurb: 'The main lake and source pond — home to kingfishers, herons and moorhens.',
     emoji: '🦆',
   },
   {
-    title: 'BMX track',
+    title: 'The River Moselle',
+    to: '/facilities/river-moselle',
+    blurb: "One of London's hidden rivers, daylit through the park and kept clear by the Water Squad.",
+    emoji: '🌊',
+  },
+  {
+    title: "Children's Playground",
+    to: '/facilities/playground',
+    blurb: 'Equipment for under-5s through to older children, with a summer paddling pool.',
+    emoji: '🛝',
+  },
+  {
+    title: 'Outdoor Gym',
+    to: '/facilities/outdoor-gym',
+    blurb: 'A full-body outdoor gym beside the Hub. Always open, always free, for ages 16+.',
+    emoji: '🏋️',
+  },
+  {
+    title: 'BMX Dirt Track',
     to: '/facilities/bmx-track',
-    blurb: 'Open-access pump and jump track. All ages welcome.',
+    blurb: 'A rider-built BMX track maintained by the Trax Club. Free coached sessions for under-18s.',
     emoji: '🚲',
   },
   {
-    title: 'The Hub & café',
+    title: 'Model Traffic Area',
+    to: '/facilities/model-traffic-area',
+    blurb: "The world's first Model Traffic Area — a miniature road layout for young cyclists.",
+    emoji: '🚦',
+  },
+  {
+    title: 'The Hub & Café',
     to: '/facilities/hub-cafe',
-    blurb: 'Community café and meeting space, available to hire.',
+    blurb: 'Community café and meeting space at the heart of the park, available to hire.',
     emoji: '☕',
   },
   {
-    title: 'Weather station',
+    title: 'Active Play',
+    to: '/facilities/active-play',
+    blurb: 'Football pitches, a multi-use games area and open green space for ball games.',
+    emoji: '⚽',
+  },
+  {
+    title: 'Luke Howard Weather Station',
     to: '/facilities/weather-station',
-    blurb: 'Live readings from the park, updated continuously.',
+    blurb: 'The park’s own weather station, named for the meteorologist who classified the clouds.',
     emoji: '🌤️',
   },
 ];
